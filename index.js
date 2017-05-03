@@ -4,6 +4,7 @@
 var DeployPluginBase = require('ember-cli-deploy-plugin');
 var Sftp             = require('sftp-upload');
 var fs               = require('fs');
+var RSVP             = require('rsvp');
 
 module.exports = {
   name: 'ember-cli-deploy-sftp',
@@ -34,27 +35,33 @@ module.exports = {
       },
 
       upload: function(/* context */) {
-        var options = {
-          host: this.readConfig('host'),
-          port: this.readConfig('port'),
-          username: this.readConfig('username'),
-          path: this.readConfig('distDir'),
-          remoteDir: this.readConfig('remoteDir'),
-          privateKey: fs.readFileSync(this.readConfig('privateKey'))
-        },
-        sftp = new Sftp(options);
+        this.log('Start Upload', { color: 'green' });
+        var promise = new RSVP.Promise(function(resolve, reject) {
+          var options = {
+            host: this.readConfig('host'),
+            port: this.readConfig('port'),
+            username: this.readConfig('username'),
+            path: this.readConfig('distDir'),
+            remoteDir: this.readConfig('remoteDir'),
+            privateKey: fs.readFileSync(this.readConfig('privateKey'))
+          },
+          sftp = new Sftp(options);
 
-        sftp.on('error', function(err){
-          this.log(err);
-        })
-        .on('uploading', function(pgs){
-          this.log('Uploading', pgs.file);
-          this.log(pgs.percent+'% completed');
-        })
-        .on('completed', function(){
-          this.log('Upload Completed');
-        })
-        .upload();
+          sftp.on('error', function(err){
+            this.log(err);
+            reject(err);
+          }.bind(this))
+          .on('uploading', function(pgs){
+            this.log('Uploading '+ pgs.file);
+            this.log(pgs.percent+'% completed');
+          }.bind(this))
+          .on('completed', function(){
+            this.log('Upload Completed', { color: 'green' });
+            resolve('OK');
+          }.bind(this))
+          .upload();
+        }.bind(this));
+        return promise;
       },
     });
     return new DeployPlugin();
