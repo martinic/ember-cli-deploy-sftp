@@ -1,5 +1,7 @@
 # ember-cli-deploy-sftp
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/martinic/ember-cli-deploy-sftp.svg)](https://greenkeeper.io/)
+
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
