@@ -1,26 +1,125 @@
-# ember-cli-deploy-sftp
+# Ember-cli-deploy-sftp
 
-This README outlines the details of collaborating on this Ember addon.
+> An ember-cli-deploy-plugin to upload an Ember App via SFTP.
+
+[![](https://ember-cli-deploy.github.io/ember-cli-deploy-version-badges/plugins/ember-cli-deploy-sftp.svg)](http://ember-cli-deploy.github.io/ember-cli-deploy-version-badges/)
+
+This plugin uploads an Ember App via SFTP to the server.
+
+## What is an ember-cli-deploy plugin?
+
+A plugin is an addon that can be executed as a part of the ember-cli-deploy pipeline. A plugin will implement one or more of the ember-cli-deploy's pipeline hooks.
+
+For more information on what plugins are and how they work, please refer to the [Plugin Documentation][1].
+
+## Quick Start
+
+To get up and running quickly, do the following:
+
+- Ensure [ember-cli-deploy-build-plus][2] is installed and configured.
+
+- Install this plugin
+
+```bash
+$ ember install ember-cli-deploy-sftp
+```
+
+- Place the following configuration into `config/deploy.js`
+
+```javascript
+module.exports = function(deployTarget) {
+  var ENV = { };
+
+  if (deployTarget === 'production') {
+    ENV.sftp = {
+      host: 'server.com',
+      remoteDir: '/home/server/http-docs/sftptest',
+      remoteUser: process.env.remoteUser,
+      privateKey: process.env.privateKey
+    };
+  }
+
+  return ENV;
+};
+```
+
+- Run the pipeline
+
+```bash
+$ ember deploy
+```
 
 ## Installation
+Run the following command in your terminal:
 
-* `git clone <repository-url>` this repository
-* `cd ember-cli-deploy-sftp`
-* `npm install`
+```bash
+ember install ember-cli-deploy-sftp
+```
 
-## Running
+## ember-cli-deploy Hooks Implemented
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+For detailed information on what plugin hooks are and how they work, please refer to the [Plugin Documentation][1].
+
+- `configure`
+- `upload`
+
+## Configuration Options
+
+For detailed information on how configuration of plugins works, please refer to the [Plugin Documentation][1].
+
+### host (`required`)
+
+Remote server IP/Hostname.
+ - `'server.com'`
+
+*Default:* `undefined`
+
+### port
+
+SFTP port.
+
+*Default:* `22`
+
+### remoteUser (`required`)
+
+Remote server username.
+
+*Default:* `'root'`
+
+### remoteDir (`required`)
+
+Remote directory where files are going to be uploaded.
+ - `'/home/server/http-docs/sftptest'`
+
+*Default:* `undefined`
+
+### distDir
+
+The root directory where the files will be searched for. By default, this option will use the `distDir` property of the deployment context, provided by [ember-cli-deploy-build-plus][2].
+
+*Default:* `context.distDir`
+
+### privateKey (`required`)
+
+RSA key file. You must upload a public key to the remote server before attempting to upload any content.
+ - `'/Users/User1/.ssh/id_rsa'`
+
+*Default:* `undefined`
+
+## Prerequisites
+
+The following properties are expected to be present on the deployment `context` object:
+
+- `distDir`      (provided by [ember-cli-deploy-build-plus][2])
+
+## Issues
+
+You can use the [issue tracker][3] to provide feedback, suggest features or report bugs.
 
 ## Running Tests
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+- `npm test`
 
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+[1]: http://ember-cli-deploy.com/ "Plugin Documentation"
+[2]: https://github.com/martinic/ember-cli-deploy-build-plus "ember-cli-deploy-build-plus"
+[3]: https://github.com/martinic/ember-cli-deploy-sftp/issues "issue tracker"

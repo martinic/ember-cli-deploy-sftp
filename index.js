@@ -20,8 +20,8 @@ module.exports = {
         port: function(context) {
           return context.port || 22;
         },
-        username: function(context) {
-          return context.username || 'root';
+        remoteUser: function(context) {
+          return context.remoteUser || 'root';
         },
         remoteDir: function(context) {
           return context.remoteDir;
@@ -40,7 +40,7 @@ module.exports = {
           var options = {
             host: this.readConfig('host'),
             port: this.readConfig('port'),
-            username: this.readConfig('username'),
+            username: this.readConfig('remoteUser'),
             path: this.readConfig('distDir'),
             remoteDir: this.readConfig('remoteDir'),
             privateKey: fs.readFileSync(this.readConfig('privateKey'))
