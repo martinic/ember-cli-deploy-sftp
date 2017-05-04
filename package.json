@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-deploy-sftp",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0",
   "description": "An ember-cli-deploy-plugin to upload an Ember App via SFTP.",
   "keywords": [
     "ember-addon",
@@ -12,7 +12,6 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -20,7 +19,7 @@
   },
   "dependencies": {
     "ember-cli-deploy-plugin": "^0.2.6",
-    "sftp-upload": "^0.0.6",
+    "sftp-upload": "^0.0.7",
     "rsvp": "^3.5.0",
     "ember-cli-babel": "^6.0.0"
   },
@@ -44,8 +43,9 @@
     "ember-source": "~2.13.0",
     "loader.js": "^4.2.3"
   },
+  "repository": "https://github.com/martinic/ember-cli-deploy-sftp",
   "engines": {
-    "node": ">= 4"
+    "node": ">= 0.10.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
