@@ -129,6 +129,19 @@ You can use the [issue tracker][3] to provide feedback, suggest features or repo
 
 - `npm test`
 
+## Credits
+
+Thanks to all our wonderful contributors, [here](https://github.com/martinic/ember-cli-deploy-sftp/graphs/contributors).
+
+## Changelog
+* **0.1.1**
+  - Add password option [#2](https://github.com/martinic/ember-cli-deploy-sftp/pull/2)
+* **0.1.0**
+  - First release
+* **0.1.0-beta.1**
+  - rename username to remoteUser and update README.md
+
+
 [1]: http://ember-cli-deploy.com/ "Plugin Documentation"
 [2]: https://github.com/martinic/ember-cli-deploy-build-plus "ember-cli-deploy-build-plus"
 [3]: https://github.com/martinic/ember-cli-deploy-sftp/issues "issue tracker"
