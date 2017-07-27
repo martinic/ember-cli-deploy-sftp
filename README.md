@@ -99,12 +99,21 @@ The root directory where the files will be searched for. By default, this option
 
 *Default:* `context.distDir`
 
-### privateKey (`required`)
+### privateKey
 
 RSA key file. You must upload a public key to the remote server before attempting to upload any content.
  - `'/Users/User1/.ssh/id_rsa'`
 
+ Either this option or `password` must be set.
+
 *Default:* `undefined`
+
+### password
+
+Password for `remoteUser`. Either this option or `privateKey` must be set.
+
+*Default:* `undefined`
+
 
 ## Prerequisites
 
