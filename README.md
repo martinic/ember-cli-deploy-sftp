@@ -104,13 +104,22 @@ The root directory where the files will be searched for. By default, this option
 RSA key file. You must upload a public key to the remote server before attempting to upload any content.
  - `'/Users/User1/.ssh/id_rsa'`
 
- Either this option or `password` must be set.
+ Either this option, `agent` or `password` must be set.
+
+*Default:* `undefined`
+
+### agent
+
+Path to ssh-agent's UNIX socket for ssh-agent-based user authentication (when your private keys are loaded into your agent). You must upload a public key to the remote server before attempting to upload any content. Windows users: set to 'pageant' for authenticating with Pageant or (actual) path to a cygwin "UNIX socket."
+ - `process.env.SSH_AUTH_SOCK`
+
+ Either this option, `privateKey` or `password` must be set.
 
 *Default:* `undefined`
 
 ### password
 
-Password for `remoteUser`. Either this option or `privateKey` must be set.
+Password for `remoteUser`. Either this option, `agent` or `privateKey` must be set.
 
 *Default:* `undefined`
 
