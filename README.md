@@ -108,6 +108,15 @@ RSA key file. You must upload a public key to the remote server before attemptin
 
 *Default:* `undefined`
 
+
+### passphrase
+
+For passphrase protected privateKeys.
+
+ If you pass this value `privateKey` must be set.
+
+*Default:* `undefined
+
 ### agent
 
 Path to ssh-agent's UNIX socket for ssh-agent-based user authentication (when your private keys are loaded into your agent). You must upload a public key to the remote server before attempting to upload any content. Windows users: set to 'pageant' for authenticating with Pageant or (actual) path to a cygwin "UNIX socket."
