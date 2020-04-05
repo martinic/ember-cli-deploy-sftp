@@ -32,6 +32,9 @@ module.exports = {
         privateKey: function(context) {
           return context.privateKey;
         },
+        passphrase: function(context) {
+          return context.passphrase;
+        },
         agent: function(context) {
           return context.agent;
         },
@@ -51,7 +54,8 @@ module.exports = {
             remoteDir: this.readConfig('remoteDir'),
             privateKey: this.readConfig('privateKey') && fs.readFileSync(this.readConfig('privateKey')),
             agent: this.readConfig('agent'),
-            password: this.readConfig('password')
+            password: this.readConfig('password'),
+            passphrase: this.readConfig('passphrase')
           },
           sftp = new Sftp(options);
 
