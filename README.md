@@ -152,6 +152,8 @@ You can use the [issue tracker][3] to provide feedback, suggest features or repo
 Thanks to all our wonderful contributors, [here](https://github.com/martinic/ember-cli-deploy-sftp/graphs/contributors).
 
 ## Changelog
+* **0.1.3**
+  -  Added passphase option for privateKey [#4](https://github.com/martinic/ember-cli-deploy-sftp/pull/4)
 * **0.1.2**
   - Add `agent` option [#3](https://github.com/martinic/ember-cli-deploy-sftp/pull/3)
 * **0.1.1**
