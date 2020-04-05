@@ -153,7 +153,7 @@ Thanks to all our wonderful contributors, [here](https://github.com/martinic/emb
 
 ## Changelog
 * **0.1.3**
-  -  Added passphase option for privateKey [#4](https://github.com/martinic/ember-cli-deploy-sftp/pull/4)
+  -  Added passphrase option for privateKey [#4](https://github.com/martinic/ember-cli-deploy-sftp/pull/4)
 * **0.1.2**
   - Add `agent` option [#3](https://github.com/martinic/ember-cli-deploy-sftp/pull/3)
 * **0.1.1**
