@@ -152,6 +152,8 @@ You can use the [issue tracker][3] to provide feedback, suggest features or repo
 Thanks to all our wonderful contributors, [here](https://github.com/martinic/ember-cli-deploy-sftp/graphs/contributors).
 
 ## Changelog
+* **0.1.4**
+  - Switch to ssh2-sftp-client
 * **0.1.3**
   -  Added passphrase option for privateKey [#4](https://github.com/martinic/ember-cli-deploy-sftp/pull/4)
 * **0.1.2**
